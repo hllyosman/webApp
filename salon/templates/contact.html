@@ -1,0 +1,31 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>RESERVATION | Le Bellreage -ル・ベルリアージュ-</title>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+<style>
+</style>
+</head>
+<body>
+<header>
+    <a href="#"><h1 id="logo">Le Bellreage</h1></a>
+    <nav>
+        <a href="#id_concept">CONCEPT</a> ｜
+        <a href="#id_menu">MENU</a> ｜
+        <a href="#id_staff">STAFF</a> ｜
+        <a href="#id_gallery">GALLERY</a> ｜
+        <a href="#id_reservation">RESERVATION</a> ｜
+        <a href="#id_access">ACCESS</a>
+    </nav>
+</header>
+<table style="margin-top:200px;">
+    {% for item in data %}
+    <tr>
+        <td>{{ item.name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
