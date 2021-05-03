@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'webApp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'salon_db',     #hllyosman$salonDB
+        'USER': 'root',    #hllyosman
+        'PASSWORD': '127hitomI.',
+        'HOST':'localhost',    #hllyosman.mysql.pythonanywhere-services.com
+        'PORT': '3306',        #''
     }
 }
 
