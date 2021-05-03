@@ -1,8 +1,555 @@
+{% load static%}
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
+    <meta charset="utf-8">
+    <title>Le Bellreage -ル・ベルリアージュ-</title>
+    <link rel="stylesheet" href="{% static 'css/common.css' %}">
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'js/common.js' %}"></script>
 </head>
 <body>
-Hello Django ^^
+<header>
+    <a href="#"><h1 id="logo">Le Bellreage</h1></a>
+    <nav>
+        <a href="#id_concept">CONCEPT</a> ｜
+        <a href="#id_menu">MENU</a> ｜
+        <a href="#id_staff">STAFF</a> ｜
+        <a href="#id_gallery">GALLERY</a> ｜
+        <a href="#id_reservation">RESERVATION</a> ｜
+        <a href="#id_access">ACCESS</a>
+    </nav>
+</header>
+
+<div style="background: url('../static/img/h01.jpg') no-repeat center bottom; width: 100%; height: 750px; background-size: contain;"></div>
+
+<!-- ▼▼コンセプト▼▼ -->
+<article id="id_concept">
+    <h2 class="title">CONCEPT</h2>
+    <article style="">
+        人が美しく健康であるためには、心と体だけでなく、髪にも栄養が不可欠です。<br>
+        Le Bellreageでは、ひとりひとりのお客様に合わせたシャンプーおよびトリートメントをセレクトし、<br>
+        サロンを出る瞬間の美しさだけでなく、日常生活の中で輝き続けられるよう、丁寧にサポートいたします。<br>
+        <br>
+        <img src="../static/img/c02.jpg" style="width: 450px; height: 300px;">
+        <img src="../static/img/c01.jpg" style="width: 400px; height: 300px;">
+        <img src="../static/img/c03.jpg" style="width: 375px; height: 300px;">
+    </article>
+</article>
+<!-- ▲コンセプト▲▲ -->
+
+<!-- ▼▼メニュー▼▼ -->
+<article id="id_menu">
+    <h2 class="title">MENU</h2>
+    <article id="menu">
+        <div>
+            <h3>CUT</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>一般</dt>
+                        <dd>¥4,550</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>学生</dt>
+                        <dd>¥3,500</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>フロントカット</dt>
+                        <dd>¥650</dd>
+                    </dl>
+                </li>
+            </ul>
+            <h3>COLOR</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>リタッチ</dt>
+                        <dd>¥5,600 ～ 8,400</dd>
+                    </dl>
+                    <aside>
+                        根元の伸びてきた部分のみのカラーリングです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>フルカラー</dt>
+                        <dd>¥6,150 〜 7,250</dd>
+                    </dl>
+                    <aside>
+                        天然由来成分92%配合のカラー剤を使用します。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>潤いカラー</dt>
+                        <dd>¥7,050 〜 8,150</dd>
+                    </dl>
+                    <aside>
+                        フルボ酸入りのフルカラーです。カラー剤に混ぜるので、時短でツヤのある仕上がりになります。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Dr.カラー</dt>
+                        <dd>¥8,950 〜 10,050</dd>
+                    </dl>
+                    <aside>
+                        ミネラルを含んだ特殊な水を使ったフルカラーです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ポイントカラー</dt>
+                        <dd>¥4,450</dd>
+                    </dl>
+                    <aside>
+                        インナーグラデーションなど、ベースカラーと違う色を部分的に入れます。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>香草カラー・ヘナ</dt>
+                        <dd>＋¥500</dd>
+                    </dl>
+                    <aside>
+                        香草の成分で染める肌に優しいカラーです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>マニキュア・ブリーチ</dt>
+                        <dd>＋¥500 〜</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>特殊テクニック</dt>
+                        <dd>＋¥500 〜</dd>
+                    </dl>
+                    <aside>
+                        ゼロテクなど。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>イルミナ</dt>
+                        <dd>＋¥1,100</dd>
+                    </dl>
+                    <aside>
+                        透き通る色味とツヤが魅力です。
+                    </aside>
+                </li>
+            </ul>
+            <h3>PERM</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>パーマ</dt>
+                        <dd>¥6,250 ～ 7,350</dd>
+                    </dl>
+                    <aside>
+                        ナチュラルな動きやトップのボリューム等、柔らかいスタイルを表現します。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>潤いパーマ</dt>
+                        <dd>¥7,050 ～ 8,150</dd>
+                    </dl>
+                    <aside>
+                        フルボ酸入りのケアパーマです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Dr.パーマ</dt>
+                        <dd>¥8,950 ～ 10,050</dd>
+                    </dl>
+                    <aside>
+                        ミネラルを含んだ特殊な水を使ったパーマです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>デジタルパーマ</dt>
+                        <dd>¥7,900 ～ 8,950</dd>
+                    </dl>
+                    <aside>
+                        柔らかく巻き髪風に仕上がるLe Bellreageオリジナルパーマです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ポイントパーマ</dt>
+                        <dd>¥3,050</dd>
+                    </dl>
+                    <aside>
+                        前髪のみやトップをふんわりさせる部分パーマです。
+                    </aside>
+                </li>
+            </ul>
+            <h3>STRAIGHT PERM</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>アイロンストレート</dt>
+                        <dd>¥1,1300 ～ 13,500</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>前髪・顔まわりアイロンストレート</dt>
+                        <dd>¥4,650</dd>
+                    </dl>
+                    <aside>
+                        顔まわりや前髪のクセが気になる方に。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>アルティピュール</dt>
+                        <dd>¥14,300 ～ 16,500</dd>
+                    </dl>
+                    <aside>
+                        ストレートパーマをしていると分からないほど自然な仕上がりに。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>潤いアイロンストレート</dt>
+                        <dd>¥11,900 ～ 14,100</dd>
+                    </dl>
+                    <aside>
+                        フルボ酸入りのアイロンストレートです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>Dr.アイロンストレート</dt>
+                        <dd>¥13,800 ～ 16,000</dd>
+                    </dl>
+                    <aside>
+                        ミネラルを含んだ特殊な水を使ったアイロンストレートです。
+                    </aside>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h3>HEAD SPA</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>はちみつ炭酸spa</dt>
+                        <dd>¥3,800</dd>
+                    </dl>
+                    <aside>
+                        はちみつのパックを使用し、頭皮を温めながらほぐします。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>はちみつspa</dt>
+                        <dd>¥3,000</dd>
+                    </dl>
+                    <aside>
+                        はちみつのパックを使用し、頭皮を温めながらほぐします（炭酸なし）。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>クイックスパ(5分)</dt>
+                        <dd>¥1,850</dd>
+                    </dl>
+                    <aside>
+                        シャンプー台で行う5分のヘッドスパです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>炭酸spa</dt>
+                        <dd>¥1,100</dd>
+                    </dl>
+                    <aside>
+                        頭皮や髪の汚れを落としてサラサラな素髪に戻してくれます。
+                    </aside>
+                </li>
+            </ul>
+            <h3>HAIR TREATMENT</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>オージュアトリートメント</dt>
+                        <dd>¥3,200 ～ 3,750</dd>
+                    </dl>
+                    <aside>
+                        一人一人の髪の毛に合わせたオーダーメイドトリートメントです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ナノスチーム</dt>
+                        <dd>¥800</dd>
+                    </dl>
+                    <aside>
+                        ナノサイズの水分が髪をしっかり保湿してくれ、やわらかな仕上がりになります。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ケアプロ</dt>
+                        <dd>¥800</dd>
+                    </dl>
+                    <aside>
+                        超音波の出るアイロンでトリートメントやカラー剤などの浸透力をupさせます。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>キラ水</dt>
+                        <dd>¥3,000</dd>
+                    </dl>
+                    <aside>
+                        ミネラルを含んだ特殊な水で、傷む前の髪質に復元していきます。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ケアシリカ</dt>
+                        <dd>¥1,100</dd>
+                    </dl>
+                    <aside>
+                        毛髪の栄養を保持するために必要な“シリカ”を補うトリートメントです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>フルボ酸トリートメント</dt>
+                        <dd>¥800 〜 1,300</dd>
+                    </dl>
+                    <aside>
+                        ツヤが出たり指通りが良くなるトリートメントです。
+                    </aside>
+                </li>
+            </ul>
+            <h3>SET & MAKE</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>セット＆ドライ</dt>
+                        <dd>¥2,400</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>セット＆ブロー</dt>
+                        <dd>¥2,950</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>セット</dt>
+                        <dd>¥4,500</dd>
+                    </dl>
+                    <aside>
+                        特別な日に…褒められるset。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ヘアアレンジ</dt>
+                        <dd>¥3,450</dd>
+                    </dl>
+                    <aside>
+                        ハーフアップなどの手軽なアレンジです。
+                    </aside>
+                </li>
+                <li>
+                    <dl>
+                        <dt>メイク</dt>
+                        <dd>¥4,000</dd>
+                    </dl>
+                    <aside>
+                        ポイントメイクは\2,750。
+                    </aside>
+                </li>
+            </ul>
+            <h3>NOMINATION FEE</h3>
+            <ul>
+                <li>
+                    <dl>
+                        <dt>アシスタント</dt>
+                        <dd>¥100</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>トップスタイリスト</dt>
+                        <dd>¥600</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>ディレクター</dt>
+                        <dd>¥1,000</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>アートディレクター</dt>
+                        <dd>¥1,500</dd>
+                    </dl>
+                </li>
+                <li>
+                    <dl>
+                        <dt>フロントカット指名料</dt>
+                        <dd>¥150</dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </article>
+</article>
+<!-- ▲▲メニュー▲▲ -->
+
+<!-- ▼▼スタッフ▼▼ -->
+<article id="id_staff">
+    <h2 class="title">STAFF</h2>
+    <article>
+        <ul>
+            <li>
+                <dl>
+                    <dt><img src="../static/img/s01.jpg" width="300px" height="300px"></dt>
+                    <dd>店長（アートディレクター）：Suzuki Ichiro</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt><img src="../static/img/s02.jpg" width="300px" height="300px"></dt>
+                    <dd>ディレクター：Sato Haruko</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt><img src="../static/img/s03.jpg" width="300px" height="300px"></dt>
+                    <dd>トップスタイリスト：Ito Akio</dd>
+                </dl>
+            </li>
+        </ul>
+    </article>
+</article>
+<!-- ▲▲スタッフ▲▲ -->
+
+<!-- ▼▼ギャラリー▼▼ -->
+<article id="id_gallery">
+    <h2 class="title">GALLERY</h2>
+    <article>
+        <img src="../static/img/g01.jpg" width="300px" height="300px">
+        <img src="../static/img/g02.jpg" width="300px" height="300px">
+        <img src="../static/img/g03.jpg" width="300px" height="300px">
+        <img src="../static/img/g04.jpg" width="300px" height="300px">
+        <img src="../static/img/g05.jpg" width="300px" height="300px">
+        <img src="../static/img/g06.jpg" width="300px" height="300px">
+        <img src="../static/img/g07.jpg" width="300px" height="300px">
+        <img src="../static/img/g08.jpg" width="300px" height="300px">
+        <img src="../static/img/g09.jpg" width="300px" height="300px">
+        <img src="../static/img/g10.jpg" width="300px" height="300px">
+        <img src="../static/img/g11.jpg" width="300px" height="300px">
+        <img src="../static/img/g12.jpg" width="300px" height="300px">
+    </article>
+</article>
+<!-- ▲▲ギャラリー▲▲ -->
+
+<!-- ▼▼予約▼▼ -->
+<article id="id_reservation">
+    <h2 class="title">RESERVATION</h2>
+    <article>
+        <ul>
+            <li>
+                <dl>
+                    <dt>WEBでのご予約</dt>
+                    <dd>
+                        <a href="">CLICK</a>
+                    </dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt>お電話でのご予約</dt>
+                    <dd>
+                        <a href="tel:0521234567">052-123-4567</a>
+                        ［平日］11:00 - 21:00<br>
+                        ［土日祝］10:00 - 19:00<br>
+                        ※定休日：木曜日
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+    </article>
+</article>
+<!-- ▲▲予約▲▲ -->
+
+<!-- ▼▼アクセス▼▼ -->
+<article id="id_access">
+    <h2 class="title">ACCESS</h2>
+    <article>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.548850754638!2d136.8990148149463!3d35.14293036691295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600377528d49f49b%3A0x2ee1ef7c402cda8!2z6YeR5bGx6aeF!5e0!3m2!1sja!2sjp!4v1619950225236!5m2!1sja!2sjp" width="900" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </article>
+</article>
+<!-- ▲▲アクセス▲▲ -->
+
+<!-- ▼▼フッター▼▼ -->
+<fotter>
+    <h4>Le Bellreage</h4>　- ル・ベルリアージュ -<br>
+    <ul>
+        <li>
+            <dl>
+                <dt>住所</dt>
+                <dd>名古屋市中区金山1-17-18</dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>電話番号</dt>
+                <dd>052-123-4567</dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>メール</dt>
+                <dd>info@LeBellreage.sample</dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>営業時間</dt>
+                <dd>
+                    ［平日］11:00 - 21:00（L.O. カット19:30 パーマorカラー19:00)／縮毛矯正、デジタルパーマ等18:00<br>
+                    ［土日祝］10:00 - 19:00（L.O. カット18:00 パーマorカラー17:00）／縮毛矯正、デジタルパーマ等16:00
+                </dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>定休日</dt>
+                <dd>木曜日</dd>
+            </dl>
+        </li>
+        <li>
+            <dl>
+                <dt>最寄り駅</dt>
+                <dd>
+                    金山総合駅より徒歩1秒
+                </dd>
+            </dl>
+        </li>
+    </ul>
+    <small>&copy;hllyosman All rights reserved.</small>
+</fotter>
+<!-- ▲▲フッター▲▲ -->
 </body>
 </html>
