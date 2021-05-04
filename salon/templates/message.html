@@ -23,57 +23,60 @@
 </header>
 
 <!-- ▼▼コンタクトト▼▼ -->
-<article id="id_contact">
-    <h2 class="title">CONTACT</h2>
+<article id="id_admin">
+    <h2 class="title">FOR ADMINISTRATOR</h2>
     <article>
-        {% if request.method != 'POST' %}
-            <form action="{% url 'contact' %}" method="post">
-                {% csrf_token %}
-                お問合せ内容をご入力ください<br>
-                ※ご予約の場合は、3営業日以降のご指定をお願いします<br>
-                <span class="red">*</span>は入力必須項目です
-                <table>
-                    <tr>
-                        <td>お名前<span class="red">*</span></td>
-                        <td>
-                            {{ form.last_name }}
-                            {{ form.first_name }}<br>
-                            {{ form.last_kana }}
-                            {{ form.first_kana }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>お電話番号<span class="red">*</span></td>
-                        <td>{{ form.tel }}</td>
-                    </tr>
-                    <tr>
-                        <td>メールアドレス<span class="red">*</span></td>
-                        <td>{{ form.email }}</td>
-                    </tr>
-                    <tr>
-                        <td>カテゴリー<span class="red">*</span></td>
-                        <td>{{ form.ctgry }}</td>
-                    </tr>
-                    <tr>
-                        <td>担当</td>
-                        <td>{{ form.pcharge }}</td>
-                    </tr>
-                    <tr>
-                        <td>問合せ内容<span class="red">*</span></td>
-                        <td>{{ form.inquiry }}</td>
-                    </tr>
-                </table>
-                <input type="submit" value="SEND">
-                <input type="reset" value="RESET"><br>
-                <a href="{% url 'message' %}" id="admin">管理者用</a>
-            </form>
-        {% endif %}
-
-        {% if request.method == 'POST' %}
-            お問合せを承りました。<br>
-            ご連絡を差し上げるまで数日お待ちください。<br>
-            &gt;&gt; <a href="{% url 'index' %}">ホームへ戻る</a> &lt;&lt;
-        {% endif %}
+        <table>
+            <tr>
+                <th>名前</th>
+                <th>電話番号</th>
+                <th>カテゴリー</th>
+                <th>担当</th>
+            </tr>
+            <tr>
+                <th>(カナ)</th>
+                <th>メールアドレス</th>
+                <th>問合せ内容</th>
+                <th>送信日時</th>
+            </tr>
+            {% for item in data %}
+                <tr>
+                    <td>
+                        {{ item.last_name }} {{ item.first_name }}
+                    </td>
+                    <td>{{ item.tel }}</td>
+                    <td>{{ item.ctgry }}</td>
+                    <td>{{ item.pcharge }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        ({{ item.last_kana }} {{ item.first_kana }})
+                    </td>
+                    <td>{{ item.email }}</td>
+                    <td>{{ item.inquiry }}</td>
+                    <td>{{ item.pub_date }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <div id="page">
+            <div>
+                {% if data.has_previous %}
+                    <a href="{% url 'message' %}">&laquo;first</a>
+                    <a href="{% url 'message' %}{{data.previous_page_number}}">&laquo;prev</a>
+                {% endif %}
+            </div>
+            <div>
+                <span class="current">
+                    [{{data.number}}/{{data.paginator.num_pages}}]
+                </span>
+            </div>
+            <div>
+                {% if data.has_next %}
+                    <a href="{% url 'message' %}{{data.next_page_number}}">next&raquo;</a>
+                    <a href="{% url 'message' %}{{data.paginator.num_pages}}">last&raquo;</a>
+                {% endif %}
+            </div>
+        </div>
     </article>
 </article>
 <!-- ▲▲コンタクト▲▲ -->
