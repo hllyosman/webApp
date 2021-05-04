@@ -1,14 +1,37 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Staff
+from django.core.paginator import Paginator
+from .models import Staff, Contact
+from .forms import ContactForm
 
-# Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    params = {
+        'hp' : 'index',
+    }
+    return render(request, 'index.html', params)
 
 def contact(request):
-    data = Staff.objects.all()
+    if (request.method == 'POST'):
+        params = {
+            'hp' : 'index',
+            'message' : 'message'
+        }
+        obj =Contact()
+        contact = ContactForm(request.POST, instance=obj)
+        contact.save()
+        return render(request, 'contact.html', params)
+    else:
+        params = {
+            'hp' : 'index',
+            'form' : ContactForm(),
+        }
+        return render(request, 'contact.html', params)
+
+def message(request, num=1):
+    data = Contact.objects.all().reverse()
+    page = Paginator(data, 5)
     params = {
-        'data' : data,
+        'hp' : 'index',
+        'data' : page.get_page(num),
     }
-    return render(request, 'contact.html', params)
+    return render(request, 'message.html', params)

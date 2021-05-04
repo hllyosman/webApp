@@ -1,11 +1,34 @@
 from django.db import models
 
-# Create your models here.
 class Staff(models.Model):
     name = models.CharField(max_length=100)
 
     def __str__(self):
-        return '<Staff:id=' + str(self.id) + ', ' + self.name + '>'
+        return self.name
+        #return '<Staff:id=' + str(self.id) + ', ' + self.name + '>'
+
+class Contact(models.Model):
+    last_name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_kana = models.CharField(max_length=30)
+    first_kana = models.CharField(max_length=30)
+    email = models.EmailField(max_length=100)
+    tel = models.CharField(max_length=30)
+    ctgry_data = (
+        ('reservation', '予約'),
+        ('consultation', '相談'),
+        ('other', 'その他'),
+    )
+    ctgry = models.CharField(max_length=30, choices=ctgry_data)
+    pcharge = models.ForeignKey(Staff, blank=True, on_delete=models.CASCADE)
+    inquiry = models.TextField()
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '<Contact:id=' + str(self.id) + ', ' + self.last_name + self.first_name + '(' + str(self.pub_date) + ')>'
+    
+    class Meta:
+        ordering = ('pub_date',)
 
 '''
 class Enq(model.Model):
