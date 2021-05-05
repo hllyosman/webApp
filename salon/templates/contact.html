@@ -65,7 +65,12 @@
                 </table>
                 <input type="submit" value="SEND">
                 <input type="reset" value="RESET"><br>
-                <a href="{% url 'message' %}" id="admin">管理者用</a>
+                <a onClick="admin()" id="admin">管理者用</a><br>
+                <div id="adminFrame" style="display: none;">
+                    <input type='password' id='pwField'>
+                    <input type='button' value='LOGIN' onClick='pwChk()'><br>
+                    <div id='msg'>ヒント：【pass】を入力</div>
+                </div>
             </form>
         {% endif %}
 
